@@ -8,12 +8,12 @@ import { AddPeopleComponent } from './components/add-people/add-people.component
 import { CanActivateService } from './services/can-activate.service';
 
 const APP_ROUTES: Routes = [
-    {path: 'home', canActivate: ['CanAlwaysActivateGuard', CanActivateService], component: HomeComponent},
-    {path: 'peoples', canActivate: ['CanAlwaysActivateGuard', CanActivateService], component: PeoplesComponent},
-    {path: 'about', canActivate: ['CanAlwaysActivateGuard', CanActivateService], component: AboutComponent},
-    {path: 'people/:id', canActivate: ['CanAlwaysActivateGuard', CanActivateService], component: PeopleComponent},
-    {path: 'login', canActivate: ['CanAlwaysActivateGuard', CanActivateService], component: LoginComponent},
-    {path: 'addPeople', canActivate: ['CanAlwaysActivateGuard', CanActivateService], component: AddPeopleComponent},
+    {path: 'home', component: HomeComponent},
+    {path: 'peoples', component: PeoplesComponent},
+    {path: 'about', component: AboutComponent},
+    {path: 'people/:id', component: PeopleComponent},
+    {path: 'login', component: LoginComponent},
+    {path: 'addPeople', component: AddPeopleComponent},
     {path: '', pathMatch: 'full', redirectTo: 'login'}
 ]
 

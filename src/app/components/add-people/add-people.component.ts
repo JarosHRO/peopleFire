@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges, ChangeDetectorRef } from '@angular/core';
 import { People } from '../../models/people';
 import { PeoplesService } from '../../services/peoples.service';
 
@@ -7,15 +7,18 @@ import { PeoplesService } from '../../services/peoples.service';
   templateUrl: './add-people.component.html',
   styleUrls: ['./add-people.component.css']
 })
-export class AddPeopleComponent implements OnInit {
+export class AddPeopleComponent implements OnInit, OnChanges {
 
   public people: People = new People();
 
-  constructor(private peoplesService: PeoplesService) { }
+  constructor(private peoplesService: PeoplesService, private cd: ChangeDetectorRef) { }
+
+  ngOnChanges(changes: SimpleChanges) {
+
+  }
 
   ngOnInit() {
     this.people = {
-      id: '',
       name: '',
       biography: '',
       heroe: ''
@@ -24,6 +27,7 @@ export class AddPeopleComponent implements OnInit {
 
   sendPeople() {
     this.peoplesService.addPeople(this.people);
+    this.cd.detectChanges();
   }
 
 }

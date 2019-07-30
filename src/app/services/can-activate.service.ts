@@ -12,12 +12,11 @@ export class CanActivateService implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     if (this._login.isAuthenticated()) {
-      if ( !this.isPageRefresh() ) {
-        return true;
+      return true;
     } else {
       this._login.closeSession(true);
     }
-  }
+  
 }
 
   private isPageRefresh(): boolean {
